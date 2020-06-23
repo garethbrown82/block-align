@@ -6,13 +6,17 @@ const StyledRow = styled.div`
   display: flex;
 `
 
-export const GridWrapper = () => {
+export const GridWrapperComponent = ({ count, countUp }) => {
   const [grid, setGrid] = useState([true, false, false, false, false, false, false, false, false ])
   
   const updateGrid = (gridIndex) => {
     const value = !grid[gridIndex];
     const newGrid = [...grid.slice(0, gridIndex), value, ...grid.slice(gridIndex+1)];
     setGrid(newGrid);
+  }
+
+  const handleClick = () => {
+    countUp();
   }
 
   return (
@@ -32,6 +36,7 @@ export const GridWrapper = () => {
         <GridSquare sideDisplayed={grid[7]} gridIndex={7} onClick={updateGrid} />
         <GridSquare sideDisplayed={grid[8]} gridIndex={8} onClick={updateGrid} />
       </StyledRow>
+      <button onClick={handleClick}>{`press  me ${count}`}</button>
     </>
   )
 }

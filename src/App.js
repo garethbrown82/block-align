@@ -1,5 +1,5 @@
 import React from 'react';
-import { GridWrapper } from './components/GridWrapper';
+import { GridWrapper } from './components/GridWrapperContainer';
 import styled from 'styled-components'
 
 const StyledAlignment = styled.div`
