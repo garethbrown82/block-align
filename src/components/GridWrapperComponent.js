@@ -1,12 +1,14 @@
 import React from 'react'
 import styled from 'styled-components'
 import { GridSquare } from './GridSquare'
+import { useSelector } from 'react-redux'
 
 const StyledRow = styled.div`
   display: flex;
 `
 
-export const GridWrapperComponent = ({ grid, updateGrid }) => {
+export const GridWrapperComponent = ({ updateGrid }) => {
+  const grid = useSelector((state) => state.grid);
   return (
     <>
       <StyledRow>
