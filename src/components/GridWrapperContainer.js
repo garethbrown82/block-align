@@ -1,13 +1,13 @@
 import { connect } from 'react-redux';
 import { GridWrapperComponent } from './GridWrapperComponent';
-import { countUp } from '../reducers/gameActions';
+import { updateGrid } from '../reducers/gameActions';
 
 const mapStateToProps = (state) => ({
-  count: state.count
+  grid: state.grid,
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  countUp: () => dispatch(countUp()),
+  updateGrid: (index) => dispatch(updateGrid(index)),
 });
 
 export const GridWrapper = connect(

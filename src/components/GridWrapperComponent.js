@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import { GridSquare } from './GridSquare'
 
@@ -6,37 +6,24 @@ const StyledRow = styled.div`
   display: flex;
 `
 
-export const GridWrapperComponent = ({ count, countUp }) => {
-  const [grid, setGrid] = useState([true, false, false, false, false, false, false, false, false ])
-  
-  const updateGrid = (gridIndex) => {
-    const value = !grid[gridIndex];
-    const newGrid = [...grid.slice(0, gridIndex), value, ...grid.slice(gridIndex+1)];
-    setGrid(newGrid);
-  }
-
-  const handleClick = () => {
-    countUp();
-  }
-
+export const GridWrapperComponent = ({ grid, updateGrid }) => {
   return (
     <>
       <StyledRow>
-        <GridSquare sideDisplayed={grid[0]} gridIndex={0} onClick={updateGrid} />
-        <GridSquare sideDisplayed={grid[1]} gridIndex={1} onClick={updateGrid} />
-        <GridSquare sideDisplayed={grid[2]} gridIndex={2} onClick={updateGrid} />
+        <GridSquare sideDisplayed={grid[0]} onClick={() => updateGrid(0)} />
+        <GridSquare sideDisplayed={grid[1]} onClick={() => updateGrid(1)} />
+        <GridSquare sideDisplayed={grid[2]} onClick={() => updateGrid(2)} />
       </StyledRow>
       <StyledRow>
-        <GridSquare sideDisplayed={grid[3]} gridIndex={3} onClick={updateGrid} />
-        <GridSquare sideDisplayed={grid[4]} gridIndex={4} onClick={updateGrid} />
-        <GridSquare sideDisplayed={grid[5]} gridIndex={5} onClick={updateGrid} />
+        <GridSquare sideDisplayed={grid[3]} onClick={() => updateGrid(3)} />
+        <GridSquare sideDisplayed={grid[4]} onClick={() => updateGrid(4)} />
+        <GridSquare sideDisplayed={grid[5]} onClick={() => updateGrid(5)} />
       </StyledRow>
       <StyledRow>
-        <GridSquare sideDisplayed={grid[6]} gridIndex={6} onClick={updateGrid} />
-        <GridSquare sideDisplayed={grid[7]} gridIndex={7} onClick={updateGrid} />
-        <GridSquare sideDisplayed={grid[8]} gridIndex={8} onClick={updateGrid} />
+        <GridSquare sideDisplayed={grid[6]} onClick={() => updateGrid(6)} />
+        <GridSquare sideDisplayed={grid[7]} onClick={() => updateGrid(7)} />
+        <GridSquare sideDisplayed={grid[8]} onClick={() => updateGrid(8)} />
       </StyledRow>
-      <button onClick={handleClick}>{`press  me ${count}`}</button>
     </>
   )
 }

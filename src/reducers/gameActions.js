@@ -1,4 +1,7 @@
-export const countUp = () => ({
-  type: 'count',
+export const updateGrid = (index) => ({
+  type: 'UPDATE_GRID',
+  payload: {
+    index,
+  }
 });
 
