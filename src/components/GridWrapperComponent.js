@@ -8,7 +8,7 @@ const StyledRow = styled.div`
   display: flex;
 `
 
-export const GridWrapperComponent = () => {
+export const GridWrapper = () => {
   const grid = useSelector((state) => state.grid);
   const dispatch = useDispatch();
 
