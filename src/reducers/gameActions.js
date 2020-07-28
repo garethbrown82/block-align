@@ -5,3 +5,10 @@ export const updateGrid = (grid) => ({
   }
 });
 
+export const setPuzzleConfig = (puzzleConfig) => ({
+  type: 'SET_PUZZLE_CONFIG',
+  payload: {
+    puzzleConfig,
+  }
+})
+
