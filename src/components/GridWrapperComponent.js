@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { GridSquare } from './GridSquare'
 import { useSelector, useDispatch } from 'react-redux'
 import { updateGrid, setPuzzleConfig } from '../reducers/gameActions'
-import { updatePuzzleGrid } from '../gamelogic/gamelogic'
+import { updatePuzzleGrid, createPuzzleConfig, Difficulty } from '../gamelogic/gamelogic'
 
 const StyledRow = styled.div`
   display: flex;
@@ -16,21 +16,9 @@ export const GridWrapper = () => {
   const puzzleConfig = useSelector((state) => state.puzzleConfig);
 
   useEffect(() => {
-    const newPuzzleConfig = [
-      [0, 1, 2, 3],
-      [1, 2],
-      [2, 3],
-    
-      [3, 4],
-      [4, 5],
-      [5, 6],
-      
-      [6, 7],
-      [7, 8],
-      [8],
-    ]
+    const newPuzzleConfig = createPuzzleConfig(Difficulty.Easy);
 
-    dispatch(setPuzzleConfig(newPuzzleConfig))
+    dispatch(setPuzzleConfig(newPuzzleConfig));
   }, [dispatch])
 
   const handleGridUpdate = (index) => {
