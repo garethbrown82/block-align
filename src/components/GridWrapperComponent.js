@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { GridSquare } from './GridSquare'
 import { useSelector, useDispatch } from 'react-redux'
 import { updateGrid } from '../reducers/gameActions'
+import { updatePuzzleGrid } from '../gamelogic/gamelogic'
 
 const StyledRow = styled.div`
   display: flex;
@@ -13,7 +14,8 @@ export const GridWrapper = () => {
   const dispatch = useDispatch();
 
   const handleGridUpdate = (index) => {
-    dispatch(updateGrid(index));
+    const updatedGrid = updatePuzzleGrid(grid, index)
+    dispatch(updateGrid(updatedGrid));
   }
   
   return (

@@ -1,7 +1,7 @@
-export const updateGrid = (index) => ({
+export const updateGrid = (grid) => ({
   type: 'UPDATE_GRID',
   payload: {
-    index,
+    grid,
   }
 });
 
