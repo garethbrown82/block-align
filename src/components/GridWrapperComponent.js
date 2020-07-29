@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import styled from 'styled-components'
 import { GridSquare } from './GridSquare'
 import { useSelector, useDispatch } from 'react-redux'
-import { updateGrid, setPuzzleConfig } from '../reducers/gameActions'
+import { updateGrid, setPuzzleConfig } from '../reducers/gameReducer'
 import { updatePuzzleGrid, createPuzzleConfig, Difficulty } from '../gamelogic/gamelogic'
 
 const StyledRow = styled.div`
@@ -16,10 +16,15 @@ export const GridWrapper = () => {
   const puzzleConfig = useSelector((state) => state.puzzleConfig);
 
   useEffect(() => {
-    const newPuzzleConfig = createPuzzleConfig(Difficulty.Easy);
+    const newPuzzleConfig = createPuzzleConfig(Difficulty.Hard);
 
     dispatch(setPuzzleConfig(newPuzzleConfig));
   }, [dispatch])
+
+  useEffect(() => {
+    const isComplete = grid.every((square) => Boolean(square));
+    isComplete && console.log('you win!');
+  })
 
   const handleGridUpdate = (index) => {
     const updatedGrid = updatePuzzleGrid(grid, index, puzzleConfig)

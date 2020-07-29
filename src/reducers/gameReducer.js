@@ -1,5 +1,5 @@
 const initialState = {
-  grid: [false, false, false, false, false, false, false, false, false ],
+  grid: [true, true, true, true, true, true, true, true, true],
   puzzleConfig: [],
 }
 export const gameReducer = (state=initialState, action) => {
@@ -14,3 +14,18 @@ export const gameReducer = (state=initialState, action) => {
   
   return state;
 }
+
+// Actions
+export const updateGrid = (grid) => ({
+  type: 'UPDATE_GRID',
+  payload: {
+    grid,
+  }
+});
+
+export const setPuzzleConfig = (puzzleConfig) => ({
+  type: 'SET_PUZZLE_CONFIG',
+  payload: {
+    puzzleConfig,
+  }
+})
